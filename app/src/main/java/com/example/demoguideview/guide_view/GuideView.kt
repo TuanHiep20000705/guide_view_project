@@ -87,13 +87,13 @@ class GuideView private constructor(context: Context, view: View?) :
         )
         mMessageView.setColor(Color.WHITE)
 
-        addView(
-            mMessageView,
-            LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-        )
+//        addView(
+//            mMessageView,
+//            LayoutParams(
+//                ViewGroup.LayoutParams.WRAP_CONTENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT
+//            )
+//        )
 
         val layoutListener: OnGlobalLayoutListener = object : OnGlobalLayoutListener {
             override fun onGlobalLayout() {
@@ -242,36 +242,36 @@ class GuideView private constructor(context: Context, view: View?) :
 
             val x = (targetRect!!.left / 2 + targetRect!!.right / 2)
 
-            when (pointerType) {
-                PointerType.circle -> {
-                    canvas.drawLine(x, startYLineAndCircle, x, stopY, paintLine)
-                    canvas.drawCircle(x, startYLineAndCircle, circleIndicatorSize, paintCircle)
-                    canvas.drawCircle(
-                        x,
-                        startYLineAndCircle,
-                        circleInnerIndicatorSize,
-                        paintCircleInner
-                    )
-                }
-
-                PointerType.arrow -> {
-                    canvas.drawLine(x, startYLineAndCircle, x, stopY, paintLine)
-                    arrowPath.reset()
-                    if (isTop) {
-                        arrowPath.moveTo(x, startYLineAndCircle - (circleIndicatorSize * 2))
-                    } else {
-                        arrowPath.moveTo(x, startYLineAndCircle + (circleIndicatorSize * 2))
-                    }
-                    arrowPath.lineTo(x + circleIndicatorSize, startYLineAndCircle)
-                    arrowPath.lineTo(x - circleIndicatorSize, startYLineAndCircle)
-                    arrowPath.close()
-                    canvas.drawPath(arrowPath, paintCircle)
-                }
-
-                PointerType.none -> {}
-
-                else -> {}
-            }
+//            when (pointerType) {
+//                PointerType.circle -> {
+//                    canvas.drawLine(x, startYLineAndCircle, x, stopY, paintLine)
+//                    canvas.drawCircle(x, startYLineAndCircle, circleIndicatorSize, paintCircle)
+//                    canvas.drawCircle(
+//                        x,
+//                        startYLineAndCircle,
+//                        circleInnerIndicatorSize,
+//                        paintCircleInner
+//                    )
+//                }
+//
+//                PointerType.arrow -> {
+//                    canvas.drawLine(x, startYLineAndCircle, x, stopY, paintLine)
+//                    arrowPath.reset()
+//                    if (isTop) {
+//                        arrowPath.moveTo(x, startYLineAndCircle - (circleIndicatorSize * 2))
+//                    } else {
+//                        arrowPath.moveTo(x, startYLineAndCircle + (circleIndicatorSize * 2))
+//                    }
+//                    arrowPath.lineTo(x + circleIndicatorSize, startYLineAndCircle)
+//                    arrowPath.lineTo(x - circleIndicatorSize, startYLineAndCircle)
+//                    arrowPath.close()
+//                    canvas.drawPath(arrowPath, paintCircle)
+//                }
+//
+//                PointerType.none -> {}
+//
+//                else -> {}
+//            }
             targetPaint.setXfermode(X_FER_MODE_CLEAR)
             targetPaint.isAntiAlias = true
 
